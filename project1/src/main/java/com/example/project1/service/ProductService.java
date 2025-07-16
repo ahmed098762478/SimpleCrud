@@ -22,6 +22,24 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
+    public Product CreateProduct(Product product){
+        return productRepository.save(product);
+    }
+
+    public Product updateProduct(int id,Product updateProduct){
+    return  productRepository.findById(id).map(product->{
+     product.setName(updateProduct.getName());
+     product.setDescription(updateProduct.getDescription());
+     product.setPrice(updateProduct.getPrice());
+     return productRepository.save(product);
+
+    }).orElse(null);
+    }
+
+    public void deleteProduct(int id){
+         productRepository.deleteById(id);
+    }
+
 
 
 

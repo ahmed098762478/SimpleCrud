@@ -6,9 +6,9 @@ const ProductTable = () => {
 
   // Exemple de produits (plus tard tu peux les récupérer depuis une API)
   const products = [
-    { id: 1, name: "PC Portable", price: 700 },
-    { id: 2, name: "Clavier", price: 25 },
-    { id: 3, name: "Souris", price: 15 },
+    { id: 1, name: "PC Portable",description: "ce produit est un ordinateur", price: 700 },
+    { id: 2, name: "Clavier",description: "ce produit est un clavier", price: 25 },
+    { id: 3, name: "Souris",description: "ce produit est une souris", price: 15 },
   ];
 
   return (
@@ -29,6 +29,7 @@ const ProductTable = () => {
           <tr className="bg-gray-200 text-gray-700">
             <th className="border border-gray-300 p-2">ID</th>
             <th className="border border-gray-300 p-2">Nom</th>
+            <th className="border border-gray-300 p-2">Description</th>
             <th className="border border-gray-300 p-2">Prix</th>
           </tr>
         </thead>
@@ -38,6 +39,7 @@ const ProductTable = () => {
             <tr key={p.id} className="text-center">
               <td className="border border-gray-300 p-2">{p.id}</td>
               <td className="border border-gray-300 p-2">{p.name}</td>
+              <td className="border border-gray-300 p-2">{p.description}</td>
               <td className="border border-gray-300 p-2">{p.price} DH</td>
             </tr>
           ))}

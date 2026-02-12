@@ -1,36 +1,39 @@
+import { Link } from "react-router-dom";
 
-import { Link, Outlet } from "react-router-dom";
-
-export default function Layout() {
+export default function Header() {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
-      {/* Header */}
-      <header className="bg-blue-600 text-white w-full p-6 text-center shadow-lg flex flex-col items-center">
-        
-        <h1 className="text-2xl font-bold">Bienvenue dans mon application</h1>
+    <header className="sticky top-0 z-30 w-full bg-white/80 backdrop-blur border-b border-gray-200">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-4 flex items-center justify-between">
+        {/* Brand */}
+        <div className="flex items-center gap-3">
+          <div className="h-10 w-10 rounded-2xl bg-blue-600 grid place-items-center shadow">
+            <span className="font-black text-white">A</span>
+          </div>
+          <div className="leading-tight">
+            <h1 className="text-lg sm:text-xl font-bold text-gray-900">
+              Mon Application
+            </h1>
+            <p className="text-xs sm:text-sm text-gray-500">
+              Gestion des produits
+            </p>
+          </div>
+        </div>
 
-        {/* Navigation */}
-        <nav className="mt-4 flex gap-4">
+        {/* Actions */}
+        <div className="flex items-center gap-3">
           <Link
-            to="/"
-            className="bg-white text-blue-600 px-4 py-2 rounded-lg shadow hover:bg-gray-200"
+            to="/add-product"
+            className="hidden sm:inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-xl shadow hover:bg-blue-700 transition"
           >
-            Accueil
+            + Ajouter
           </Link>
 
-          <Link
-            to="/products"
-            className="bg-white text-blue-600 px-4 py-2 rounded-lg shadow hover:bg-gray-200"
-          >
-            Liste Produits
-          </Link>
-        </nav>
-      </header>
-
-      {/* Ici s'affiche UNE seule page à la fois */}
-      <main className="flex-grow flex items-center justify-center p-6">
-        <Outlet />
-      </main>
-    </div>
+          {/* Avatar */}
+          <div className="h-10 w-10 rounded-full bg-gray-200 grid place-items-center">
+            <span className="text-sm font-semibold text-gray-700">UI</span>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }

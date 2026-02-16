@@ -6,7 +6,7 @@ public class LoginDTO
     private String password;
 
     public String getMail() {
-        return mail;
+        return this.mail;
     }
 
     public void setMail(String mail) {
@@ -17,7 +17,7 @@ public class LoginDTO
         return password;
     }
 
-    public void setPassword(String password) {
+        public void setPassword(String password) {
         this.password = password;
     }
 }

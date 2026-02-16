@@ -16,11 +16,11 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public void createUser(User user){
+    public void createUser(@RequestBody User user){
         userService.createUser(user);
     }
     @GetMapping("/{id}")
-    public User getUserById(int id){ return userService.getUserById(id).orElse(null); }
+    public User getUserById(@PathVariable int id){ return userService.getUserById(id).orElse(null); }
 
     @GetMapping
     public List<User> getAllUsers(){ return userService.getAllUsers(); }

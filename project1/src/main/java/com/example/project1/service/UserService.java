@@ -15,8 +15,8 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-     public void createUser(@RequestBody User user){
-         userRepository.save(user);
+     public User createUser(@RequestBody User user){
+         return userRepository.save(user);
      }
 
      public Optional<User> getUserById(int id){

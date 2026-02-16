@@ -16,8 +16,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public void createUser(@RequestBody User user){
-        userService.createUser(user);
+    public User createUser(@RequestBody User user){
+        return userService.createUser(user);
     }
     @GetMapping("/{id}")
     public User getUserById(@PathVariable int id){ return userService.getUserById(id).orElse(null); }
